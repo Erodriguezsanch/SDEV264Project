@@ -12,7 +12,7 @@ import com.example.jiujitsulog.data.SessionRepository
 
 @Composable
 fun SessionListScreen() {
-    val sessions = SessionRepository.getSessions()
+    val sessions = SessionRepository.getSessions().reversed()
 
     Column(
         modifier = Modifier

@@ -1,5 +1,6 @@
 package com.example.jiujitsulog.ui.screens
 
+import android.content.Context
 import android.widget.Toast
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -18,6 +19,7 @@ import com.example.jiujitsulog.data.SessionRepository
 @Composable
 fun MainScreen() {
     val context = LocalContext.current
+    val prefs = remember { context.getSharedPreferences("user_prefs", Context.MODE_PRIVATE) }
 
     var date by remember { mutableStateOf("") }
     var classType by remember { mutableStateOf("Gi") }
@@ -25,6 +27,12 @@ fun MainScreen() {
     var submissions by remember { mutableStateOf("") }
     var position by remember { mutableStateOf("") }
     var notes by remember { mutableStateOf("") }
+
+    // Load saved preferences on launch
+    LaunchedEffect(Unit) {
+        classType = prefs.getString("default_class_type", "Gi") ?: "Gi"
+        position = prefs.getString("favorite_position", "") ?: ""
+    }
 
     Column(
         modifier = Modifier
@@ -95,7 +103,7 @@ fun MainScreen() {
                 date = ""
                 rounds = ""
                 submissions = ""
-                position = ""
+                position = prefs.getString("favorite_position", "") ?: ""
                 notes = ""
             },
             modifier = Modifier.align(Alignment.End)
