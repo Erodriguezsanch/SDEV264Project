@@ -1,0 +1,28 @@
+# 🥋 Jiu-Jitsu Log
+
+> A minimalist Android app for tracking Brazilian Jiu-Jitsu training sessions. Built with Kotlin/Jetpack Compose.
+
+---
+
+## ✨ Features
+
+- Log sessions with:
+  - 📅 Date
+  - 🥋 Class Type (Gi / No-Gi)
+  - 🔁 Rounds + Submissions
+  - 📌 Positional Focus
+  - 📝 Notes & Reflections
+- View sessions in **chronological order**
+- Light/Dark Theme toggle
+- Persistent data storage using **Room**
+- Shared preferences for default values
+- "Are you sure?" delete confirmation
+
+---
+
+## 🧰 How to Run
+
+1. Clone the repo:
+   ```bash
+   git clone https://github.com/your-username/jiu-jitsu-log.git
+   cd jiu-jitsu-log
